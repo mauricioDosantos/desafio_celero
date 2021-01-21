@@ -7,7 +7,7 @@ from django.db import models
 
 
 class Pessoa(models.Model):
-    id = models.IntegerField(primarykey=True, blank=False)
+    id = models.IntegerField(primary_key=True, blank=False)
     name = models.CharField(max_length=70)
     sex = models.CharField(max_length=15)
     age = models.CharField(max_length=7)
@@ -16,13 +16,13 @@ class Pessoa(models.Model):
     
 
 class Time(models.Model):
-    id = models.AutoField(primarykey=True, blank=False)
+    id = models.AutoField(primary_key=True, blank=False)
     team = models.CharField(max_length=70)
     noc = models.CharField(max_length=20)
     
 
 class Evento(models.Model):
-    id = models.AutoField(primarykey=True, blank=False)
+    id = models.AutoField(primary_key=True, blank=False)
     games = models.CharField(max_length=100)
     year = models.CharField(max_length=20)
     season = models.CharField(max_length=100)
@@ -32,7 +32,7 @@ class Evento(models.Model):
 
 
 class Medalha(models.Model):
-    id = models.AutoField(primarykey=True, blank=False)
+    id = models.AutoField(primary_key=True, blank=False)
     desc = models.CharField(max_length=20)
     
 

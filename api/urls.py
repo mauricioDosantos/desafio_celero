@@ -1,5 +1,5 @@
 from django.urls import path
-from .view import add, update, listing, delete
+from .views import add, update, listing, delete
 
 
 urlpatterns = [
