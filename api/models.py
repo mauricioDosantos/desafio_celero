@@ -13,6 +13,8 @@ class Pessoa(models.Model):
     age = models.CharField(max_length=7)
     height = models.CharField(max_length=10)
     weight = models.CharField(max_length=10)
+
+
     
 
 class Time(models.Model):
@@ -39,13 +41,22 @@ class Medalha(models.Model):
 class PessoaTime(models.Model):
     id_pessoa_fk = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
     id_time_fk = models.ForeignKey(Time, on_delete=models.CASCADE)
-    
+
+    class Meta:
+        unique_together = ['id_pessoa_fk', 'id_time_fk']
+
 
 class MedalhaPessoa(models.Model):
     id_pessoa_fk = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
     id_medalha_fk = models.ForeignKey(Medalha, on_delete=models.CASCADE)
 
+    class Meta:
+        unique_together = ['id_pessoa_fk', 'id_medalha_fk']
+
 
 class PessoaEvento(models.Model):
     id_pessoa_fk = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
     id_evento_fk = models.ForeignKey(Evento, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ['id_pessoa_fk', 'id_evento_fk']
