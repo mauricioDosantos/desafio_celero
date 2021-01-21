@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'api.apps.ApiConfig',
+    'rest-framework',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +77,11 @@ WSGI_APPLICATION = 'manager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'desafio_celero',
+        'USERNAME': 'root',
+        'PASSWORD': 'Bd_Connect',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
