@@ -46,6 +46,6 @@ class MedalhaPessoa(models.Model):
     id_medalha_fk = models.ForeignKey(Medalha, on_delete=models.CASCADE)
 
 
-class TimeEvento(models.Model):
-    id_time_fk = models.ForeignKey(Time, on_delete=models.CASCADE)
+class PessoaEvento(models.Model):
+    id_pessoa_fk = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
     id_evento_fk = models.ForeignKey(Evento, on_delete=models.CASCADE)
