@@ -1,38 +1,11 @@
 from rest_framework import serializers
-from .models import Pessoa, Time, Evento, Medalha, PessoaTime, PessoaEvento, MedalhaPessoa
+from .models import Pessoa, Time, Evento, Medalha
 
 
 class PessoaSerializer(serializers.ModelSerializer):
-    team = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    event = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    medal = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-
-    class Meta:
+    class Meta:  # todo: tenho que fazer algo no modelo pessoa para reconhecer as outras classes, algum Meta
         model = Pessoa
-        fields = ['id', 'name', 'sex', 'age', 'height', 'weight', 'team', 'event', 'medal']
-
-
-"""
-class MedalhaPessoa(models.Model):
-    id_pessoa_fk = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
-    id_medalha_fk = models.ForeignKey(Medalha, on_delete=models.CASCADE)
-
-
-class PessoaEvento(models.Model):
-    id_pessoa_fk = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
-    id_evento_fk = models.ForeignKey(Evento, on_delete=models.CASCADE)
-
-
-class PessoaTimeSerializer(serializers.Serializer):
-    serializers.PrimaryKeyRelatedField()
-
-    id_pessoa_fk = serializers.PrimaryKeyRelatedField(many=True,)
-    id_time_fk = serializers.ForeignKey(Time)
-
-class PessoaEventoSerializer(serializers.Serializer):
-class MedalhaPessoaSerializer(serializers.Serializer):
-
-"""
+        fields = ['id', 'name', 'sex', 'age', 'height', 'weight', 'id_time', 'id_evento', 'id_medalha']
 
 
 class TimeSerializer(serializers.ModelSerializer):

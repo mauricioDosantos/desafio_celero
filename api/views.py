@@ -1,6 +1,6 @@
 from api.serializers import PessoaSerializer, TimeSerializer, EventoSerializer, MedalhaSerializer
 from rest_framework import generics
-from .models import Pessoa, Time, Evento, Medalha, PessoaTime, MedalhaPessoa, PessoaEvento
+from .models import Pessoa, Time, Evento, Medalha
 
 
 # add, update, delete, listing
