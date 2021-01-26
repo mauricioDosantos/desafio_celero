@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'manager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config('ENGINE', cast=dj),
+        'ENGINE': config('ENGINE'),
         'NAME': config('NAME'),
         'USERNAME': config('USERNAME'),
         'PASSWORD': config('PASSWORD'),
