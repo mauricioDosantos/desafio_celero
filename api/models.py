@@ -11,6 +11,9 @@ class Time(models.Model):
     team = models.CharField(max_length=70)
     noc = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.team
+
 
 class Evento(models.Model):
     id = models.AutoField(primary_key=True, blank=False)
@@ -21,10 +24,16 @@ class Evento(models.Model):
     sport = models.CharField(max_length=50)
     event = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.event
+
 
 class Medalha(models.Model):
     id = models.AutoField(primary_key=True, blank=False)
     desc = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.desc
 
 
 class Pessoa(models.Model):
