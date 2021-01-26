@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path, PurePath
-import dj_database_url as dj
+from dj_database_url import parse as dj
 from decouple import config
 import django_heroku
 
