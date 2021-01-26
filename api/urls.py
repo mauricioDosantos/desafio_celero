@@ -1,11 +1,17 @@
 from django.urls import path
-from .views import PessoaList, TimeList, EventoList, MedalhaList, pessoa
+from .views import pessoa, time, evento, medalha
 
 
 urlpatterns = [
-    path('PessoaList/', PessoaList.as_view(), name='criar'),
-    path('PessoaList/<int:pk>', pessoa, name='update'),
-    path('TimeList/', TimeList.as_view(), name='atualizar'),
-    path('EventoList/', EventoList.as_view(), name='listar'),
-    path('MedalhaList/', MedalhaList.as_view(), name='deletar'),
+    path('PessoaList/', pessoa, name='pessoa'),
+    path('PessoaList/<int:pk>', pessoa, name='pessoa-id'),
+
+    path('TimeList/', time, name='time'),
+    path('TimeList/<int:pk>', time, name='time-id'),
+
+    path('EventoList/', evento, name='evento'),
+    path('EventoList/<int:pk>', evento, name='evento-id'),
+
+    path('MedalhaList/', medalha, name='medalha'),
+    path('MedalhaList/<int:pk>', medalha, name='medalha-id'),
 ]
