@@ -2,6 +2,12 @@ from rest_framework import serializers
 from .models import Pessoa, Time, Evento, Medalha
 
 
+"""
+
+    Classes serealizadoras que serealizam e desserealizam os JSON para um tipo que o Python reconhece.
+
+"""
+
 class PessoaSerializer(serializers.ModelSerializer):
     class Meta:  # todo: tenho que fazer DELETE E UPDATE
         model = Pessoa

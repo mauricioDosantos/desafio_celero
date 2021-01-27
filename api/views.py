@@ -6,6 +6,12 @@ from .models import Pessoa, Time, Evento, Medalha
 # from .add_data import *
 
 
+"""
+    Visualizações da API, funções que recebem JSON e respondem com JSON.
+    Para cada modelo tem uma visualização.
+"""
+
+
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
 def pessoa(request, pk=None):
     if request.method == 'POST':
@@ -14,11 +20,11 @@ def pessoa(request, pk=None):
             pessoa.save()
             return Response(status=status.HTTP_200_OK)
 
-        return Response({'message': 'invalid data'})
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
     try:
         pessoa = Pessoa.objects.get(id=pk)
-    except:
+    except Exception:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == "GET":
@@ -36,7 +42,7 @@ def pessoa(request, pk=None):
         pessoa.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    return Response({'Method': f'invalid {request.method}'})
+    return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
@@ -45,9 +51,9 @@ def time(request, pk=None):
         time = TimeSerializer(data=request.data)
         if time.is_valid():
             time.save()
-        else:
-            return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        return Response({'message': 'invalid data'})
+            return Response(status=status.HTTP_200_OK)
+
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
     try:
         time = Time.objects.get(id=pk)
@@ -69,7 +75,7 @@ def time(request, pk=None):
         time.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    return Response({'Method': f'invalid {request.method}'})
+    return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
@@ -78,9 +84,9 @@ def evento(request, pk=None):
         evento = EventoSerializer(data=request.data)
         if evento.is_valid():
             evento.save()
-        else:
-            return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        return Response({'message': 'invalid data'})
+            return Response(status=status.HTTP_200_OK)
+
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
     try:
         evento = Evento.objects.get(id=pk)
@@ -102,7 +108,7 @@ def evento(request, pk=None):
         evento.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    return Response({'Method': f'invalid {request.method}'})
+    return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
@@ -111,9 +117,9 @@ def medalha(request, pk=None):
         medalha = MedalhaSerializer(data=request.data)
         if medalha.is_valid():
             medalha.save()
-        else:
-            return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        return Response({'message': 'invalid data'})
+            return Response(status=status.HTTP_200_OK)
+
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
     try:
         medalha = Medalha.objects.get(id=pk)
@@ -135,5 +141,5 @@ def medalha(request, pk=None):
         medalha.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    return Response({'Method': f'invalid {request.method}'})
+    return Response(status=status.HTTP_404_NOT_FOUND)
 

@@ -2,6 +2,11 @@ from django.urls import path
 from .views import pessoa, time, evento, medalha
 
 
+"""
+    Rotas da API.
+"""
+
+
 urlpatterns = [
     path('PessoaList/', pessoa, name='pessoa'),
     path('PessoaList/<int:pk>', pessoa, name='pessoa-id'),
